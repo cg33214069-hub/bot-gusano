@@ -1,4 +1,17 @@
 const { Telegraf, Markup } = require('telegraf');
+const express = require('express');
+
+// Configuración del servidor web falso para que Render no se queje de los puertos
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('¡El bot de Gusano Royale está activo y funcionando en la nube! 🚀');
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor web escuchando en el puerto ${PORT}`);
+});
 
 // Token de tu bot de Telegram
 const bot = new Telegraf('9088724999:AAEShSRtbBKJQ1sR4NCnxYDlGPEA5xFcrFI');
